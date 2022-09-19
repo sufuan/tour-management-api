@@ -110,7 +110,10 @@ exports.singleTour = async (req, res) => {
         let tour = await Tour.findById(req.params.id)
         res.status(200).json(tour)
     } catch (error) {
-
+        res.status(400).json({
+            success: false,
+            message: error.message
+        })
     }
 }
 

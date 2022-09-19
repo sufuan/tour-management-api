@@ -46,6 +46,16 @@ const tourSchema = new mongoose.Schema({
         max: 5,
     },
 
+    destination: {
+        type: String,
+        required: [true, 'Enter Tour Destination'],
+
+    },
+    duration: {
+        type: String,
+        required: [true, 'Enter Tour Duration'],
+    }
+
 
 })
 
