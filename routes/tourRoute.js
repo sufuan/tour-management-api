@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router()
-const tourController = require('../controllers/tourController')
+const tourController = require('../controllers/tourController');
+const viewCount = require('../middleware/viewCount');
 
 
 
@@ -9,7 +10,7 @@ router.route('/tours')
     .get(tourController.getall)
     .post(tourController.createTour)
 
-router.route('/tours/:id').get(tourController.singleTour)
+router.route('/tours/:id').get(viewCount, tourController.singleTour)
 
 
 router.route('/tour/:id').patch(tourController.updateTour)
