@@ -5,21 +5,7 @@ const Tour = require("../model/Tour")
 
 exports.getall = async (req, res) => {
 
-    // const queryObjforSearch = { ...req.query }
 
-    // const excludeFields = ['sort', 'page', 'limit']
-
-    // // console.log(req.query)
-    // excludeFields.forEach(val => delete queryObjforSearch[val])
-
-    // // console.log(queryObjforSearch);
-
-    // let queryString = JSON.stringify(queryObjforSearch)
-    // // console.log(queryString)
-
-    // queryString = queryString.replace(/\b(gt|gte|lt|lte|in)\b/g, (match) => `$${match}`)
-
-    // // console.log(queryString)
 
 
     //                    ============   sorting =============
@@ -67,7 +53,7 @@ exports.getall = async (req, res) => {
 
     try {
         const tour = await Tour.find({}).skip(queries.skip).limit(queries.limit).select(queries.fields).sort(queries.sortby)
-        // const bootcamp = await BootCamp.find(JSON.parse(queryString)).sort(queries.sortby)
+        // const tour = await Tour.find(JSON.parse(queryString)).sort(queries.sortby)
         const totalProducts = await Tour.countDocuments(queryObj)
         // const toalPage = Math.ceil(totalProducts / queries.limit)
         // console.log(toalPage);
