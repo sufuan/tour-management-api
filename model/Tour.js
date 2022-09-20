@@ -10,15 +10,18 @@ const tourSchema = new mongoose.Schema({
         trim: true,
         maxlength: [120, 'A tour name must have less than or equal to 120 characters',
         ],
-        minlength: [5, 'A tour name must have more then or equal to 10 characters',
+        minlength: [5, 'A tour name must have more then or equal to 5 characters',
         ],
     },
-    title: {
+    route: {
         type: String,
-        required: [true, 'A tour must have a title'],
+        required: [true, 'A tour must have a route'],
     },
 
-    images: [String],
+    image: {
+        type: String,
+        required: [true, 'A tour must have a image'],
+    },
 
     createAt: {
         type: Date,

@@ -55,7 +55,7 @@ exports.getall = async (req, res) => {
     //  pagination 
 
     if (req.query.page) {
-        const { page = 1, limit = 2 } = req.query
+        const { page = 1, limit = 4 } = req.query
 
         const skip = (page - 1) * (limit * 1)
 
